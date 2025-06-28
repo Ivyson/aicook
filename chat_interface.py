@@ -18,6 +18,7 @@ from embedding_pipeline import collection, embedding  # Uses same chroma & Gemin
 from Handler import start_watching
 from google.genai import types
 
+
 #API_KEY = os.getenv("GEMINI_API_KEY") #API is now taken from the environmnet by default.
 #if not API_KEY:
 #    raise EnvironmentError("GEMINI_API_KEY not found in environment variables.")
@@ -47,7 +48,7 @@ def start_chat():
             query_embedding = embedding(query)
             results = collection.query(
                 query_embeddings=[query_embedding],
-                n_results=5
+                n_results=3
             )
             
             # print('trying to get documents')
@@ -88,7 +89,6 @@ def start_chat():
                     )
 
             console.print(Markdown(f"\nResponse: {response.text}"))
-            # console.print(Markdown(response.text))
         except Exception as e:
             print(f"[!] Error generating response: {e}")
 

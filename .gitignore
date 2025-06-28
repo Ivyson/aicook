@@ -25,6 +25,7 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+database/CHROMA_STORE/7692c7a0-b7ab-47c5-bf27-1664abce02f4/*
 
 # PyInstaller
 #  Usually these files are written by a python script from a template

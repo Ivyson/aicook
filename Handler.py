@@ -10,12 +10,13 @@ from watchdog.events import FileSystemEventHandler
 from embedding_pipeline import delete_from_vector_db, add_to_vector_db
 import warnings
 
-# Suppress specific warnings from Watchdog
+# Suppress specific warnings Form Watchdog
 warnings.filterwarnings("ignore", category=UserWarning, module='watchdog')
 DB_PATH = "./database/index.db"
 WATCHED_DIR = os.path.expanduser("""~/OneDrive - Cape Peninsula University of Technology/My Scripts/PlayGround""")
 
-# SQLite Setup & Utilities
+
+
 def init_db():
     '''
     Checks if the database exists, and creates it if not existing
@@ -117,21 +118,20 @@ class RAGFileEventHandler(FileSystemEventHandler):
         if record is None:
             print(f"[+] New file: {path}")
             upsert_file_record(path, current_modified, current_hash)
-            # TODO: Embed and add to vector DB
+
+
             add_to_vector_db(path)
         else:
             last_modified, last_hash = record
             if current_hash != last_hash:
                 print(f"[*] Modified content: {path}")
                 upsert_file_record(path, current_modified, current_hash)
-                # TODO: Re-embed and update vector DB
+              
                 add_to_vector_db(path)
             else:
                 print(f"[=] Unchanged file: {path} (skip)")
 
-# -------------------------
-# Start Watchdog
-# -------------------------
+
 def start_watching(folder_path):
     init_db()
 

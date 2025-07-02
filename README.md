@@ -1,6 +1,6 @@
 # AICook
 
-AICook is your personal academic sidekick crafted for computer engineering students. It automatically watches the folders you work in, transforms new and updated documents into semantic embeddings, and delivers context-aware help through an easy-to-use chat interface.
+AICook is your personal academic sidekick crafted for computer engineering student(myself obviously). It automatically watches the folders you work in, transforms new and updated documents into semantic embeddings, and delivers context-aware help through an easy-to-use chat interface(using Gemini 2.5 Flash model)
 
 ## What AICook offers
 
